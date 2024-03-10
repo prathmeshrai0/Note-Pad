@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+  <header>Nodepad </header>
+  <div class="container" id="container"></div>
+  <div class="btnContainer">
+
+    <button id="btn" onclick="InsertData()">Insert data</button>
+    <button id="btn2" onclick="deleteData()">Delete data</button>
+    <button id="btn3" onclick="deleteAllData()">Delete all data</button>
+    </div>
+    <script>
+    let box = document.createElement('div')
+    let btn = document.getElementById('btn')
+
+    box.setAttribute('class', 'box')
+    console.log(box, 'df');
+
+
+
+    function getdata() {
+      let title = prompt('enter the title of note')
+
+      let subject = prompt('enter the subject of note ')
+      if ((title == '' || title == null ) && (subject == ''|| subject == null)) {
+        console.log('no data inserted ');
+        return 0
+
+      }
+       
+      localStorage.setItem(title, subject)
+      console.log('local s. setitem is not executed ');
+
+    }
+    let dis = () => {
+      box.innerHTML = ''
+      console.log(localStorage.length);
+      for (let i = 0; i < localStorage.length; i++) {
+
+        console.log('run the dispaly');
+        box.innerHTML += `${i + 1}.  ${localStorage.key(i)} => ${localStorage.getItem(localStorage.key(i))} <br>`
+      }
+
+
+    }
+    let deleteAllData = () => {
+      confirm('are you sure to delete all data?') ? localStorage.clear() : alert("Data Deletion Process Declined")
+      dis()
+    }
+    let deleteData = () => {
+      let id = prompt('enter the index no. of data u want to delete ')
+    //   console.log(id);
+      localStorage.removeItem(localStorage.key(id - 1))
+      dis()
+    }
+    dis()
+
+    let InsertData = async () => {
+   
+      getdata()
+      dis()
+    }
+let container = document.getElementById('container')
+
+    container.append(box);
+  </script>
+</body>
+
+</html>

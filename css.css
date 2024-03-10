@@ -1,0 +1,27 @@
+body{
+    background-color: #1e1e1e;
+    color: white;
+}
+header{
+    text-align: center;
+    font-size: 44px;
+    text-decoration: underline;
+}
+.container{
+   
+}
+
+.btnContainer{
+    position: fixed;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-wrap: wrap;
+  
+}
+
+.btnContainer button{
+    
+ padding: 2px;
+ margin: 5px;
+}
