@@ -1,1 +1,2 @@
-https://prathmeshrai0.github.io/Note-Pad/html.html
+https://prathmeshrai0.github.io/Note-Pad
+
